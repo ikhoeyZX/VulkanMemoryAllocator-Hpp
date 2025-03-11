@@ -1,6 +1,15 @@
 module;
+
+#include <version>
+#if defined( __cpp_lib_modules )
+#define VMA_ENABLE_STD_MODULE
+#endif
+
 #define VMA_IMPLEMENTATION
-#include <vk_mem_alloc.hpp>
+#include <vk_mem_alloc.h>
+
+#include "vk_mem_alloc.hpp"
+
 export module vk_mem_alloc_hpp;
 
 export namespace VMA_HPP_NAMESPACE {
@@ -55,6 +64,8 @@ export namespace VMA_HPP_NAMESPACE {
 
 #ifndef VULKAN_HPP_NO_SMART_HANDLE
 export namespace VMA_HPP_NAMESPACE {
+  using VMA_HPP_NAMESPACE::createAllocatorUnique;
+  using VMA_HPP_NAMESPACE::createVirtualBlockUnique;
   using VMA_HPP_NAMESPACE::UniqueBuffer;
   using VMA_HPP_NAMESPACE::UniqueImage;
   using VMA_HPP_NAMESPACE::UniqueAllocator;
@@ -62,6 +73,8 @@ export namespace VMA_HPP_NAMESPACE {
   using VMA_HPP_NAMESPACE::UniqueAllocation;
   using VMA_HPP_NAMESPACE::UniqueVirtualAllocation;
   using VMA_HPP_NAMESPACE::UniqueVirtualBlock;
+  using VMA_HPP_NAMESPACE::createAllocatorUnique;
+  using VMA_HPP_NAMESPACE::createVirtualBlockUnique;
 }
 #endif
 
